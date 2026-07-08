@@ -1,0 +1,22 @@
+artifact_path: ./mlruns/1/models/m-f7d2e9f80fe7400ca230c98b0201ab05/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.12.1
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.core.Booster
+    model_format: ubj
+    xgb_version: 3.3.0
+mlflow_version: 3.14.0
+model_id: m-f7d2e9f80fe7400ca230c98b0201ab05
+model_size_bytes: 2397334
+model_uuid: m-f7d2e9f80fe7400ca230c98b0201ab05
+prompts: null
+run_id: 6ea67142e5754614b32ac2a7af3d5114
+utc_time_created: '2026-07-08 13:27:55.773313'
