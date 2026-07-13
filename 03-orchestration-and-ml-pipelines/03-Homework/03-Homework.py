@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import os
 import pickle
 from pathlib import Path
-
-# Avoid a UnicodeEncodeError on Windows consoles: mlflow prints an emoji
-# in its run-finished message before the cp1250/cp1252 codec can handle it.
-os.environ.setdefault("MLFLOW_SUPPRESS_PRINTING_URL_TO_STDOUT", "1")
 
 import pandas as pd
 import requests
