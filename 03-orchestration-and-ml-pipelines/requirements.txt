@@ -5,3 +5,4 @@ pandas
 seaborn
 hyperopt
 xgboost
+prefect==3.7.7
