@@ -7,6 +7,6 @@ COPY [ "Pipfile", "Pipfile.lock", "./" ]
 
 RUN pipenv install --system --deploy
 
-COPY [ "Homework.python", "./" ]
+COPY [ "Homework.py", "./" ]
 
-ENTRYPOINT [ "python", "Homework.python" ]
+ENTRYPOINT [ "python", "Homework.py" ]

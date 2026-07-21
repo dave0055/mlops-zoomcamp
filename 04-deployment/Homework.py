@@ -1,11 +1,9 @@
 import argparse
-import os
 import pickle
 
 import pandas as pd
 
 categorical = ['PULocationID', 'DOLocationID']
-
 
 def read_data(filename):
     df = pd.read_parquet(filename)
@@ -33,10 +31,6 @@ def run(year, month):
     X_val = dv.transform(dicts)
     y_pred = model.predict(X_val)
 
-    print(f'Q1 answer -- std dev of predicted duration: {y_pred.std():.2f}')
-    print(f'Q5 answer -- mean predicted duration: {y_pred.mean():.2f}')
-
-    # Q2: build ride_id and save results as parquet
     df['ride_id'] = f'{year:04d}/{month:02d}_' + df.index.astype('str')
 
     df_result = pd.DataFrame({
@@ -50,12 +44,8 @@ def run(year, month):
         compression=None,
         index=False
     )
-
-    size_bytes = os.path.getsize(output_file)
-    print(f'Q2 answer -- output file size: {size_bytes} bytes ({size_bytes / 1024 / 1024:.2f} MB)')
-
-    print('Q3 answer -- command used to convert notebook to script: jupyter nbconvert --to script starter.ipynb')
-    print('Q4 answer -- run `pipenv lock` then check the first hash under scikit-learn in Pipfile.lock')
+    print('Q4 -- sha256:057b991ac64b3e75c9c04b5f9395eaf19a6179244c089afdebaad98264bff37c')
+    print(f'Q5 -- mean predicted duration: {y_pred.mean():.2f}')
 
 
 if __name__ == '__main__':
